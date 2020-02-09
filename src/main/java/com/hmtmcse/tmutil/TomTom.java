@@ -14,7 +14,7 @@ public class TomTom {
         return UUID.randomUUID().toString();
     }
 
-    private static String randomString(Integer number) {
+    public static String randomString(Integer number) {
         return uuid().substring(0, number).replaceAll("-", "");
     }
 
