@@ -1,5 +1,7 @@
 package com.hmtmcse.tmutil;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.UUID;
 
@@ -20,5 +22,21 @@ public class TomTom {
 
     public static String random15Char() {
         return randomString(15);
+    }
+
+    public static String formatDateTime(String pattern, LocalDateTime localDateTime) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+        if (localDateTime == null) {
+            return null;
+        }
+        return localDateTime.format(dateTimeFormatter);
+    }
+
+    public static String formatCurrentDateTime(String pattern) {
+        return formatDateTime(pattern, LocalDateTime.now());
+    }
+
+    public static String currentDateTime() {
+        return formatCurrentDateTime("dd-MM-yyyy_HH-mm-ss");
     }
 }
