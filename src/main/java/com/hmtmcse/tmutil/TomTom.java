@@ -1,5 +1,7 @@
 package com.hmtmcse.tmutil;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -39,4 +41,24 @@ public class TomTom {
     public static String currentDateTime() {
         return formatCurrentDateTime("dd-MM-yyyy_HH-mm-ss");
     }
+
+
+    public static String concatUrlString(String baseUrl, String postfix) {
+        URL url = concatUrl(baseUrl, postfix);
+        if (url == null) {
+            return null;
+        }
+        return url.toString();
+    }
+
+    public static URL concatUrl(String baseUrl, String postfix) {
+        try {
+            URL url = new URL(baseUrl);
+            url = new URL(url, postfix);
+            return url;
+        } catch (MalformedURLException e) {
+            return null;
+        }
+    }
+
 }
