@@ -61,4 +61,26 @@ public class TomTom {
         }
     }
 
+    public static Boolean isEmptyString(String data) {
+        return data == null || data.equals("");
+    }
+
+
+    public static String concatWithSeparator(String prefix, String postfix, String separator) {
+        if (!isEmptyString(prefix) && !isEmptyString(postfix) && !isEmptyString(separator)) {
+            String temp;
+            if (prefix.endsWith(separator)) {
+                temp = prefix;
+            } else {
+                temp = prefix + separator;
+            }
+            if (!postfix.startsWith(separator)) {
+                return temp + postfix;
+            } else {
+                return temp + postfix.substring(1);
+            }
+        }
+        return null;
+    }
+
 }
