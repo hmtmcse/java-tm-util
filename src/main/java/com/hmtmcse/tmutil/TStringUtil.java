@@ -1,27 +1,46 @@
 package com.hmtmcse.tmutil;
 
-public  class TStringUtil {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    public static String removeEndChar(String content, String endChar){
-        if (content != null && endChar != null && content.endsWith(endChar)){
+public class TStringUtil {
+
+    public static String removeEndChar(String content, String endChar) {
+        if (content != null && endChar != null && content.endsWith(endChar) && !endChar.equals("")) {
             return content.substring(0, content.length() - 1);
         }
         return content;
     }
 
-    public static String removeStartChar(String content, String startChar){
-        if (content != null && startChar != null && content.startsWith(startChar)){
+    public static String removeStartChar(String content, String startChar) {
+        if (content != null && startChar != null && !startChar.equals("") && content.startsWith(startChar)) {
             return content.substring(1);
         }
         return content;
     }
 
     public static String trimStartEndChar(String content, String character) {
-        if (content != null && character != null) {
+        if (content != null && character != null && !character.equals("")) {
             content = removeEndChar(content, character);
             return removeStartChar(content, character);
         }
         return content;
+    }
+
+    public static String[] split(String content, String character) {
+        if (content != null && character != null && !character.equals("")) {
+            return content.split(character);
+        }
+        return new String[0];
+    }
+
+    public static List<String> splitAsList(String content, String character) {
+        String[] data = split(content, character);
+        if (data.length != 0) {
+            return Arrays.asList(data);
+        }
+        return new ArrayList<>();
     }
 
 }

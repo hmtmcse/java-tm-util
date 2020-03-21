@@ -21,7 +21,21 @@ class TStringUtilTest extends Specification {
     def "Trim start and end Char truncate"() {
         expect: "Trim start and end Char truncate"
         println(TStringUtil.trimStartEndChar("/path/to/file/", "/"))
+        println(TStringUtil.trimStartEndChar("/path/to/file/", ""))
         println(TStringUtil.trimStartEndChar("/path/to/file/", null))
         println(TStringUtil.trimStartEndChar(null, "/"))
+    }
+
+    def "Test String split"() {
+        expect: "Test String split"
+        println(TStringUtil.split(TStringUtil.trimStartEndChar("/path/to/file/", "/"), "/"))
+        println(TStringUtil.split("/path/to/file/", "/"))
+        println(TStringUtil.split("/path/to/file/", null))
+        println(TStringUtil.split(null, "/"))
+    }
+
+    def "Test String split as list"() {
+        expect: "Test String split as list"
+        println(TStringUtil.splitAsList(TStringUtil.trimStartEndChar("/path/to/file/", "/"), "/"))
     }
 }
