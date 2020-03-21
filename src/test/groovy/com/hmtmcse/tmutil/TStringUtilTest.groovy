@@ -38,4 +38,12 @@ class TStringUtilTest extends Specification {
         expect: "Test String split as list"
         println(TStringUtil.splitAsList(TStringUtil.trimStartEndChar("/path/to/file/", "/"), "/"))
     }
+
+    def "Test reverse list"() {
+        expect: "Test String split as list"
+        def list = TStringUtil.splitAsList(TStringUtil.trimStartEndChar("/path/to/file/", "/"), "/")
+        println(TStringUtil.reverseList(list))
+        println(list)
+
+    }
 }

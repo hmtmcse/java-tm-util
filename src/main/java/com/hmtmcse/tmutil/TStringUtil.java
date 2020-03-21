@@ -2,6 +2,7 @@ package com.hmtmcse.tmutil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class TStringUtil {
@@ -41,6 +42,14 @@ public class TStringUtil {
             return Arrays.asList(data);
         }
         return new ArrayList<>();
+    }
+
+    public static List<String> reverseList(List<String> list) {
+        if (list != null && list.size() != 0) {
+            list = new ArrayList<>(list);
+            Collections.reverse(list);
+        }
+        return list;
     }
 
 }
