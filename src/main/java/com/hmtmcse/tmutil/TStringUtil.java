@@ -52,4 +52,11 @@ public class TStringUtil {
         return list;
     }
 
+    public static String findReplace(String content, String find, String replace) {
+        if (content != null && find != null && !find.equals("") && replace != null && !replace.equals("")) {
+            return content.replaceAll(find, replace);
+        }
+        return content;
+    }
+
 }
