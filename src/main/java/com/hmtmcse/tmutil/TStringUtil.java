@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class TStringUtil {
 
@@ -54,7 +55,7 @@ public class TStringUtil {
 
     public static String findReplace(String content, String find, String replace) {
         if (content != null && find != null && !find.equals("") && replace != null && !replace.equals("")) {
-            return content.replaceAll(find, replace);
+            return content.replace(find, replace);
         }
         return content;
     }
